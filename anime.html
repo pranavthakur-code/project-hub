@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anime Club  </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background-color: #ff4500;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .anime-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .anime {
+            border: 2px solid white;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            background-color: #333;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function showEpisodes(anime) {
+            let episodes = {
+                "Naruto": { count: 220, url: "https://www.crunchyroll.com/series/GY9PJ5KWR/naruto" },
+                "Bleach": { count: 366, url: "https://www.netflix.com/in/title/70204957?source=35" },
+                "One Piece": { count: 1000, url: "https://www.crunchyroll.com/series/GRMG8ZQZR/one-piece" }
+            };
+            
+            if (episodes[anime]) {
+                let userChoice = confirm(`${anime} has ${episodes[anime].count} episodes. Click OK to start watching!`);
+                if (userChoice) {
+                    window.location.href = episodes[anime].url;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>Anime Hub: Naruto, Bleach & One Piece</header>
+    <div class="anime-container">
+        <div class="anime" onclick="showEpisodes('Naruto')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg" alt="Naruto">
+            <h2>Naruto</h2>
+            <p>Follow Naruto Uzumaki on his journey to become Hokage!</p>
+        </div>
+        <div class="anime" onclick="showEpisodes('Bleach')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/72/Bleachanime.png" alt="Bleach">
+            <h2>Bleach</h2>
+            <p>Ichigo Kurosaki gains Soul Reaper powers and fights evil spirits.</p>
+        </div>
+        <div class="anime" onclick="showEpisodes('One Piece')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/90/One_Piece%2C_Volume_61_Cover_%28Japanese%29.jpg" alt="One Piece">
+            <h2>One Piece</h2>
+            <p>Join Monkey D. Luffy on his adventure to find the One Piece.</p>
+        </div>
+    </div>
+</body>
+</html>
